@@ -147,7 +147,10 @@ function Orbit() {
 
   return (
     <div className="mt-auto flex items-center justify-center pt-8">
-      <svg viewBox="0 0 240 240" className="w-full max-w-[300px]" aria-hidden="true">
+      {/* viewBox is wider than the 240-unit artwork and offset -34 on x: the side
+          labels are anchored start/end outside the ring, so "Breathe" runs to
+          ~258 and "Embody" back to ~-16. A 0..240 box clipped both in half. */}
+      <svg viewBox="-34 0 308 240" className="w-full max-w-[340px]" aria-hidden="true">
         {/* Track the arc travels along */}
         <circle
           cx="120"
