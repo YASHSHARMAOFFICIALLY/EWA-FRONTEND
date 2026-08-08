@@ -5,23 +5,23 @@ import { CircularTestimonials, type Testimonial } from "@/components/ui/circular
 const testimonials: Testimonial[] = [
   {
     quote:
-      "I'd done years of mindset work and still woke up in the same loop. The nervous system practices were the missing piece — six weeks in, I stopped bracing for a day that hadn't happened yet.",
+      "Eleven minutes of yoga nidra before bed, that was the whole change. I'd tried every sleep app going. This one didn't ask me to relax — it just walked me down until I was already there.",
     name: "Tamar Mendelson",
-    designation: "Member since 2024",
+    designation: "Nervous System Reset · 8 months in",
     src: "https://images.unsplash.com/photo-1512316609839-ce289d3eba0a?q=80&w=1368&auto=format&fit=crop",
   },
   {
     quote:
-      "The hypnosis sessions did in a month what talk therapy hadn't touched in two years. I don't have to talk myself into the new identity anymore. It's just how I move now.",
+      "I came for the breathwork and stayed for the hypnosis. Six weeks in I caught myself not spiralling before a pitch — no talking myself down, no script. The reaction just wasn't there anymore.",
     name: "Joe Charlescraft",
-    designation: "Member since 2023",
+    designation: "Subconscious Reprogramming · 2 years in",
     src: "https://images.unsplash.com/photo-1628749528992-f5702133b686?q=80&w=1368&auto=format&fit=crop",
   },
   {
     quote:
-      "What sold me is that nothing here asks you to pretend. You do the practice, the body catches up, and one morning you notice you've become someone who doesn't need convincing.",
+      "Every other platform gave me a library and wished me luck. EWA gave me the next twenty minutes. I've kept a 200-day streak without once deciding to — the practice just tells me where it left off.",
     name: "Martina Edelweist",
-    designation: "Member since 2024",
+    designation: "Daily Practice · 200-day streak",
     src: "https://images.unsplash.com/photo-1524267213992-b76e8577d046?q=80&w=1368&auto=format&fit=crop",
   },
 ];
@@ -45,12 +45,14 @@ export function Testimonials() {
           <CircularTestimonials
             testimonials={testimonials}
             autoplay
+            // Section keeps the hero's literal white ground, so the type stays
+            // literal too; only the arrows take brand tokens.
             colors={{
               name: "#131019",
               designation: "#71717a",
               testimony: "#3f3f46",
-              arrowBackground: "#773AC1",
-              arrowForeground: "#ffffff",
+              arrowBackground: "var(--primary)",
+              arrowForeground: "var(--primary-foreground)",
               arrowHoverBackground: "#131019",
             }}
             fontSizes={{ name: "28px", designation: "16px", quote: "19px" }}
