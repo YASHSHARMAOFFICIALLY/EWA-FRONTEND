@@ -4,6 +4,8 @@ import { BentoCard } from "@/components/landingpage/Bentocard";
 import { Testimonials } from "@/components/landingpage/testimonials";
 import { Pricing } from "@/components/landingpage/pricing";
 import { Faq } from "@/components/landingpage/faq";
+import { Founder } from "@/components/landingpage/founder";
+import { Footer } from "@/components/landingpage/footer";
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
       <Testimonials />
       <Pricing />
       <Faq />
+      <Founder />
+      <Footer />
     </>
   );
 }
