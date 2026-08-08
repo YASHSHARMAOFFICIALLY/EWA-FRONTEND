@@ -76,9 +76,9 @@ export function Navbar() {
           {/* Lockup tagline — muted and small so it sits under the mark without
               competing with the nav links for weight. */}
           <span className="text-[11px] font-medium uppercase leading-none tracking-[0.14em] text-muted-foreground">
-            Elevate with Ana
+            Elevate with Anahaa
           </span>
-          <span className="sr-only">— home</span>
+          <span className="sr-only">, home</span>
         </Link>
 
         {/* Absolutely centred on the bar, not flex-centred between logo and

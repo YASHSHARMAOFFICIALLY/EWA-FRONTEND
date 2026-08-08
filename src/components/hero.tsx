@@ -97,8 +97,8 @@ export function Hero() {
             reprogram your subconscious, regulate your nervous system,
           </strong>{" "}
           and{" "}
-          <strong className="font-semibold text-zinc-900">embody a new identity</strong>{" "}
-          — so you can manifest from the depth of who you truly are.
+          <strong className="font-semibold text-zinc-900">embody a new identity</strong>,{" "}
+          so you can manifest from the depth of who you truly are.
         </p>
 
         <div className="mt-9 flex justify-center">

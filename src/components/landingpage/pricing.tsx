@@ -23,26 +23,27 @@ const PLANS: Plan[] = [
   {
     id: "seeker",
     title: "Seeker",
-    desc: "For the practitioner starting out — the core meditations, breathwork and hypnosis sessions, practised on your own schedule.",
+    desc: "For the practitioner starting out. The whole library of meditation, breathwork and hypnosis sessions, practised on your own schedule.",
     price: {
       USD: { monthly: 29, annually: 306 },
       INR: { monthly: 1499, annually: 14990 },
     },
     buttonText: "Begin the practice",
     features: [
-      "Full meditation & breathwork library",
+      "The full meditation and breathwork library",
       "Guided hypnosis sessions",
       "Nervous-system regulation track",
       "Progress and streak tracking",
       "New sessions every month",
-      "Community circle access",
+      "Private members Discord, open day one",
+      "Certificate for every course you finish",
     ],
     href: "#start",
   },
   {
     id: "creator",
     title: "Creator",
-    desc: "For the member going all the way in — everything in Seeker, plus live containers and direct guidance from the teachers.",
+    desc: "For the member going all the way in. Everything in Seeker, plus live containers and direct guidance from Anahaa.",
     price: {
       USD: { monthly: 79, annually: 834 },
       INR: { monthly: 3999, annually: 39990 },
@@ -55,6 +56,7 @@ const PLANS: Plan[] = [
       "Ancient yogic practice deep-dives",
       "Identity-rewiring 8-week program",
       "1:1 onboarding call with a guide",
+      "Creator-only Discord channels with Anahaa",
       "Priority answers from teachers",
       "Early access to new courses",
     ],
@@ -134,8 +136,9 @@ export function Pricing() {
             Choose how deep you go.
           </h2>
           <p className="mx-auto mt-6 max-w-lg text-[17px] leading-relaxed text-zinc-600">
-            One membership, every practice. Cancel whenever — the work is yours
-            either way.
+            Both plans open the entire library and the private Discord on day
+            one. Nothing is sold course by course, and you can cancel in two
+            clicks.
           </p>
         </div>
 
@@ -184,9 +187,11 @@ export function Pricing() {
           ))}
         </div>
 
+        {/* No trial claim here: the backend has no trial concept, so promising
+            one on the landing page would break at checkout. */}
         <p className="mt-10 text-center text-sm text-zinc-500">
-          Prices in {currency}. Every plan starts with a 7-day trial — no card
-          charged until it ends.
+          Prices shown in {currency}, charged in your local currency at
+          checkout. Cancel any time from your account.
         </p>
       </div>
     </section>

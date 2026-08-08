@@ -3,62 +3,47 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-// These answer what someone hesitating about the practice actually asks —
-// not billing. Payment, refunds and access questions belong on a support page,
-// where someone who has already bought will look for them.
+// Seven only. These are the objections that stop a signup: what you get, can
+// a beginner do it, how much time, is anyone else here, is hypnosis safe,
+// where to start, can I leave. Practice-theory and medical detail belong on
+// the course pages; billing and refund detail belongs on support.
 const FAQS = [
+  {
+    question: "What do I actually get the day I join?",
+    answer:
+      "The whole library at once. Every meditation, breathwork and hypnosis course is open from the first minute, nothing is sold separately, and new sessions land every month. You also get the private members Discord and a certificate at the end of each course you finish.",
+  },
   {
     question: "I've never meditated. Will I be lost?",
     answer:
-      "No. Ana talks you through every session from the first breath to the last, so there is nothing to figure out on your own — no posture to hold, no technique to memorise, no silent room where you wonder whether you're doing it right. Most people start with a ten-minute session and stay there for a while. That's the practice, not the warm-up for it.",
+      "No. Anahaa talks you through every session from the first breath to the last, so there is nothing to figure out on your own. No posture to hold, no technique to memorise, no silent room where you wonder whether you're doing it right. Most people start with a ten-minute session and stay there for a while. That's the practice, not the warm-up for it.",
   },
   {
     question: "How much time does this actually take?",
     answer:
-      "Ten to twenty minutes on an ordinary day. Sessions run from short resets you can do between meetings to longer hypnosis journeys of forty minutes or more, and you choose by how much you have left in you that day — not by what the schedule says. Consistency does more here than duration.",
+      "Ten to twenty minutes on an ordinary day. Sessions run from short resets you can do between meetings to longer hypnosis journeys of forty minutes or more, and you choose by how much you have left in you that day, not by what the schedule says. Consistency does more here than duration.",
   },
   {
-    question: "What's the difference between the meditation, breathwork and hypnosis?",
+    question: "Is there a community, or am I practising alone?",
     answer:
-      "They work on different layers. Breathwork moves the nervous system directly and fast — it's what to reach for when your body is already activated. Meditation builds the attention that lets you notice a pattern while it's happening instead of afterwards. Hypnosis goes underneath both, to the beliefs running the pattern in the first place. The courses weave all three because working on one alone tends not to hold.",
+      "There's a private Discord for members only, and it opens the day you join. You connect your Discord account once and you're added straight to the server, so there's no invite link to hunt for and no waiting to be approved. Anahaa is in there, and so is everyone else working through the same courses.",
   },
   {
     question: "Is hypnosis safe? Will I lose control?",
     answer:
-      "You stay awake, aware and in charge the entire time — you can open your eyes and stop whenever you want. It isn't stage hypnosis, and nobody makes you do anything. What it feels like, mostly, is a very focused daydream. If old material surfaces, you're free to come out of it and come back another day.",
+      "You stay awake, aware and in charge the entire time, and you can open your eyes and stop whenever you want. It isn't stage hypnosis, and nobody makes you do anything. What it feels like, mostly, is a very focused daydream. If you're pregnant, or living with epilepsy, a heart condition or a psychiatric diagnosis, check with your doctor first, particularly before the strong breathwork sessions.",
   },
   {
-    question: "Do I need to be flexible, or do yoga poses?",
+    question: "Where should I start, and what if I fall off?",
     answer:
-      "The yogic practices here are breath, kriya and attention work, done sitting or lying down. Nothing requires flexibility, equipment or floor space beyond somewhere to sit comfortably. If you can breathe and stay still, you can do all of it.",
+      "Start with the foundation course. It sequences the breath, meditation and hypnosis work in the order they build on each other, so you aren't guessing what to open next. If you disappear for a few weeks, nothing expires and nothing resets. Every lesson resumes at the second you left it, on whichever device you pick up.",
   },
   {
-    question: "Is this religious? Do I have to believe anything?",
+    question: "Can I cancel?",
     answer:
-      "The techniques come from yogic tradition, but the practice asks for no belief and no conversion. You're invited to try something and notice what changes for you — nothing more. Students arrive from every faith and from none.",
-  },
-  {
-    question: "Is this therapy? I'm dealing with anxiety and old trauma.",
-    answer:
-      "No — this is education and practice, not treatment, and Ana is a teacher rather than a clinician. Many people practise alongside therapy and find the two support each other. If you're in active crisis, working with trauma, pregnant, or living with epilepsy, a heart condition or a psychiatric diagnosis, talk to your doctor or therapist first — particularly before the intense breathwork sessions, which are genuinely strong.",
-  },
-  {
-    question: "How long before I feel something?",
-    answer:
-      "Most people notice the nervous-system effects in the first session or two — calmer body, easier sleep. The identity-level changes are slower and less dramatic: a reaction that doesn't fire, a decision that feels obvious now. Think in weeks of practice, not days, and don't measure it daily.",
-  },
-  {
-    question: "What if I fall off for a few weeks?",
-    answer:
-      "Then you come back and start where you are. Nothing expires, nothing resets, and every lesson resumes at the second you left it. Missing time isn't a failure of the practice — it's the most normal part of it.",
-  },
-  {
-    question: "Where should I start?",
-    answer:
-      "With the foundation course. It sequences the breath, meditation and hypnosis work in the order they build on each other, so you aren't guessing what to open next. Everything else in the library stays there for when you're ready.",
+      "Any time, from your account, in a couple of clicks. There's no cancellation call and nobody tries to talk you out of it. You keep access until the end of the period you've already paid for, and your progress is still waiting if you come back later.",
   },
 ];
-
 function Chevron({ open }: { open: boolean }) {
   return (
     <svg
@@ -98,7 +83,7 @@ export function Faq() {
             Questions before you begin.
           </h2>
           <p className="mx-auto mt-6 max-w-lg text-[17px] leading-relaxed text-zinc-600 dark:text-zinc-400">
-            If yours isn&apos;t here, write to us — a person answers, usually the
+            If yours isn&apos;t here, write to us. A person answers, usually the
             same day.
           </p>
         </div>

@@ -8,16 +8,16 @@ import {
   Target,
   Lightning,
   MagnifyingGlass,
-  Certificate,
+  DiscordLogo,
 } from "@phosphor-icons/react";
 import { cn } from "@/lib/utils";
 
 /* ──────────────────────────────────────────────────────
-   EWA bento — pastel tinted cards, white icon chips,
-   one orbit diagram. Content from the backend's
-   ARCHITECTURE.md: one-time orders, webhook-granted
-   lifetime access, Cloudflare Stream lessons, the Discord
-   perk, certificates on completion.
+   EWA bento: pastel tinted cards, white icon chips, one
+   orbit diagram. Content tracks the backend's
+   ARCHITECTURE.md: webhook-granted access, Cloudflare
+   Stream lessons, resume position, and the Discord perk
+   (modules/discord) as the headline member benefit.
 ────────────────────────────────────────────────────── */
 
 const container: Variants = {
@@ -269,8 +269,9 @@ export function BentoCard() {
             Built for the practice, not the checkout.
           </h2>
           <p className="mx-auto mt-6 max-w-lg text-[17px] leading-relaxed text-zinc-600 dark:text-zinc-400">
-            Everything below is what happens after you join — the part most
-            course platforms treat as an afterthought.
+            One membership opens the whole library, every course, and the
+            private circle. Everything below is what happens after you join,
+            the part most course platforms treat as an afterthought.
           </p>
         </div>
 
@@ -290,11 +291,11 @@ export function BentoCard() {
             className="lg:col-span-2 lg:row-span-2"
             visual={<Orbit />}
           >
-            Meditate, breathe, rewire, embody — then round again, deeper.
+            Meditate, breathe, rewire, embody, then round again and deeper.
             Nothing here is a course you finish once and shelve.
           </Card>
 
-          <Card tint="mint" icon={Waveform} title="Ana guides every session end to end.">
+          <Card tint="mint" icon={Waveform} title="Anahaa guides every session end to end.">
             No reading list, no homework you do alone. Each session is filmed
             and led start to finish, so you close your eyes and follow.
           </Card>
@@ -310,14 +311,21 @@ export function BentoCard() {
           </Card>
 
           <Card tint="blush" icon={MagnifyingGlass} title="You never lose your place.">
-            Every lesson resumes at the second you left it — same on the phone
-            you started on and the laptop you finish on.
+            Every lesson resumes at the second you left it, on the phone you
+            started on and the laptop you finish on.
           </Card>
 
-          <Card tint="sand" icon={Certificate} title="One membership. Every course.">
-            Nothing is sold separately — the whole library opens at once, with a
-            certificate at the end of each course and the private circle from
-            the moment you join.
+          {/* The Discord perk is the one benefit no other course platform in
+              this space ships, so it gets its own card rather than a bullet
+              buried in the pricing list. */}
+          <Card
+            tint="sand"
+            icon={DiscordLogo}
+            title="A private Discord, open the day you join."
+          >
+            Members only, and no invite link to chase. Connect Discord once and
+            the door opens by itself, with Anahaa and everyone else practising
+            beside you.
           </Card>
         </motion.div>
       </div>
