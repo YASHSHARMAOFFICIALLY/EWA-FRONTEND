@@ -1,9 +1,17 @@
+import { Navbar } from "@/components/navbar";
+import { Hero } from "@/components/hero";
+import { BentoCard } from "@/components/landingpage/Bentocard";
+import { Pricing } from "@/components/landingpage/pricing";
+import { Faq } from "@/components/landingpage/faq";
+
 export default function Home() {
   return (
-    <main className="font-inter flex min-h-dvh items-center justify-center p-8">
-      <h1 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
-        Your App Name
-      </h1>
-    </main>
+    <>
+      <Navbar />
+      <Hero />
+      <BentoCard />
+      <Pricing />
+      <Faq />
+    </>
   );
 }

@@ -4,6 +4,123 @@
    .dark class on <html>, so rebind the variant or every dark: utility is dead. */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Expose the shadcn tokens as Tailwind utilities (bg-background, text-primary…) */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+@layer base {
+  :root {
+    /* Light mode — derived from Velvet Violet */
+    --background: oklch(0.98 0.008 300);
+    --foreground: oklch(0.18 0.02 300);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.18 0.02 300);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.18 0.02 300);
+    --primary: oklch(0.5 0.2 300);
+    --primary-foreground: oklch(0.98 0 0);
+    --secondary: oklch(0.94 0.013 300);
+    --secondary-foreground: oklch(0.18 0.02 300);
+    --muted: oklch(0.95 0.008 300);
+    --muted-foreground: oklch(0.45 0.02 300);
+    --accent: oklch(0.93 0.012 300);
+    --accent-foreground: oklch(0.18 0.02 300);
+    --destructive: oklch(0.55 0.22 25);
+    --destructive-foreground: oklch(0.98 0 0);
+    --border: oklch(0.9 0.008 300);
+    --input: oklch(0.96 0.008 300);
+    --ring: oklch(0.5 0.2 300);
+    --radius: 0.75rem;
+    --gradient-bg: linear-gradient(
+      135deg,
+      oklch(0.98 0.008 300) 0%,
+      oklch(0.95 0.013 315) 100%
+    );
+    --gradient-accent: linear-gradient(
+      to right,
+      oklch(0.5 0.2 300) 0%,
+      oklch(0.52 0.19 340) 100%
+    );
+  }
+
+  .dark {
+    /* Dark mode — derived from Velvet Violet */
+    --background: oklch(0.12 0.03 300);
+    --foreground: oklch(0.97 0.01 300);
+    --card: oklch(0.17 0.035 300);
+    --card-foreground: oklch(0.97 0.01 300);
+    --popover: oklch(0.19 0.035 300);
+    --popover-foreground: oklch(0.97 0.01 300);
+    --primary: oklch(0.68 0.2 300);
+    --primary-foreground: oklch(0.12 0 0);
+    --secondary: oklch(0.21 0.045 300);
+    --secondary-foreground: oklch(0.97 0.01 300);
+    --muted: oklch(0.19 0.035 300);
+    --muted-foreground: oklch(0.67 0.01 300);
+    --accent: oklch(0.23 0.04 300);
+    --accent-foreground: oklch(0.97 0.01 300);
+    --destructive: oklch(0.65 0.22 25);
+    --destructive-foreground: oklch(0.98 0 0);
+    --border: oklch(0.25 0.035 300);
+    --input: oklch(0.17 0.035 300);
+    --ring: oklch(0.68 0.2 300);
+    --radius: 0.75rem;
+    --gradient-bg: linear-gradient(
+      135deg,
+      oklch(0.12 0.03 300) 0%,
+      oklch(0.15 0.035 315) 100%
+    );
+    --gradient-accent: linear-gradient(
+      to right,
+      oklch(0.68 0.2 300) 0%,
+      oklch(0.7 0.19 340) 100%
+    );
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
+
+/* Brand gradients. bg = barely-there depth; accent = hero CTAs only, never
+   behind body text. */
+.bg-gradient-brand {
+  background-image: var(--gradient-bg);
+}
+
+.bg-gradient-accent {
+  background-image: var(--gradient-accent);
+}
+
 /* next/font variables, set on <body> by layout.tsx */
 .font-poppins {
   font-family: var(--font-poppins), sans-serif;
@@ -23,4 +140,21 @@
 
 .font-inter {
   font-family: var(--font-inter), sans-serif;
+}
+
+/* Billing-cycle caption fade in the pricing cards. */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
