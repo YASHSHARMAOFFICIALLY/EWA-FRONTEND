@@ -166,9 +166,6 @@ export function Pricing() {
           >
             Annually
           </span>
-          <span className="rounded-full bg-[#faf6ee] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#8a6d3f]">
-            2 months free
-          </span>
         </div>
 
         {/* Seven auto rows + grid-rows-subgrid on each card: every card's title,

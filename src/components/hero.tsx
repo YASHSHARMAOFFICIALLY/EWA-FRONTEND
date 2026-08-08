@@ -10,6 +10,19 @@ function Sparkle({ className = "size-3.5" }: { className?: string }) {
   );
 }
 
+// Primary CTA appears twice (above and below the film), so it lives in one place.
+function MemberCta() {
+  return (
+    <a
+      href="#start"
+      className="inline-flex h-14 items-center gap-3 rounded-full bg-primary px-9 text-[13px] font-semibold uppercase tracking-[0.14em] text-primary-foreground transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+    >
+      <Sparkle />
+      Become a member
+    </a>
+  );
+}
+
 // Pure white ground, continuous with the navbar above — the page opens on paper
 // and colour is spent only on the kicker, the accent word and the primary CTA.
 // Colours are literal, not tokens: the hero stays white in dark mode, so the
@@ -46,13 +59,7 @@ export function Hero() {
         </p>
 
         <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-          <a
-            href="#start"
-            className="inline-flex h-14 items-center gap-3 rounded-full bg-primary px-9 text-[13px] font-semibold uppercase tracking-[0.14em] text-primary-foreground transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-          >
-            <Sparkle />
-            Become a member
-          </a>
+          <MemberCta />
           {/* Secondary CTA is gold, not grey — grey would read as "disabled"
               next to a saturated purple pill. #8a6d3f on white is 5.4:1. */}
           <a
@@ -81,7 +88,9 @@ export function Hero() {
           </button>
         </div>
 
-        <p className="mx-auto mt-10 max-w-2xl text-[17px] leading-relaxed text-zinc-600">
+        {/* text-balance evens the line lengths so the centred rag doesn't leave
+            a stub word on the last line. */}
+        <p className="mx-auto mt-10 max-w-2xl text-balance text-[19px] leading-relaxed text-zinc-600">
           You were not born to live a life on autopilot. You are the operant power
           behind your reality. EWA is a transformational platform that guides you to{" "}
           <strong className="font-semibold text-zinc-900">
@@ -91,6 +100,10 @@ export function Hero() {
           <strong className="font-semibold text-zinc-900">embody a new identity</strong>{" "}
           — so you can manifest from the depth of who you truly are.
         </p>
+
+        <div className="mt-9 flex justify-center">
+          <MemberCta />
+        </div>
       </div>
     </section>
   );
